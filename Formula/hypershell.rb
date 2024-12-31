@@ -8,13 +8,13 @@ class Hypershell < Formula
   license "Apache-2.0"
   version "2.6.2"
 
-  bottle do
-    root_url "https://github.com/hypershell/hypershell/releases/download/2.6.2/"
-    sha256 cellar: :any, arm64_ventura: "65d4596911ac7e359294c0d1816a9dfd266305badf90eeac9a0164f6ccec2cb6"
-    sha256 cellar: :any,       ventura: "dd2166fb02c732030b30be6de9e826bb03424ddf3f0f556edd5da25794717fbf"
-  end
+  #bottle do
+  #  root_url "https://github.com/hypershell/hypershell/releases/download/2.6.2/"
+  #  sha256 cellar: :any, arm64_ventura: "65d4596911ac7e359294c0d1816a9dfd266305badf90eeac9a0164f6ccec2cb6"
+  #  sha256 cellar: :any,       ventura: "dd2166fb02c732030b30be6de9e826bb03424ddf3f0f556edd5da25794717fbf"
+  #end
 
-  depends_on "rust"
+  #depends_on "rust"
   depends_on "python@3.13"
   depends_on "postgresql@16"
 
