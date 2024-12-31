@@ -14,7 +14,7 @@ class Hypershell < Formula
   #  sha256 cellar: :any,       ventura: "dd2166fb02c732030b30be6de9e826bb03424ddf3f0f556edd5da25794717fbf"
   #end
 
-  #depends_on "rust"
+  depends_on "rust"
   depends_on "python@3.13"
   depends_on "postgresql@16"
 
