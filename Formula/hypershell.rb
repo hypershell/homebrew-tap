@@ -124,7 +124,9 @@ class Hypershell < Formula
 
   def install
     virtualenv_install_with_resources
-    prefix.install libexec/"share"
+    man.install man
+    bash_completion.install src/completions/hypershell.sh
+    zsh_completion.install src/completions/hypershell.sh
 
     system "mkdir", "-p", bin
     system "ln", "-sf", libexec/"bin/hs", bin/"hs"
