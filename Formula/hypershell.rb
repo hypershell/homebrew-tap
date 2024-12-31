@@ -1,4 +1,4 @@
-class HyperShell < Formula
+class Hypershell < Formula
   include Language::Python::Virtualenv
 
   desc "Process shell commands over a distributed, asynchronous queue"
