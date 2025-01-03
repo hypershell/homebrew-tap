@@ -3,20 +3,21 @@ class Hypershell < Formula
 
   desc "Process shell commands over a distributed, asynchronous queue"
   homepage "https://hypershell.org"
-  url "https://github.com/hypershell/hypershell/archive/refs/tags/2.6.2.tar.gz"
-  sha256 "c55307dfe44f224738195648addd4ab6583fa3637a6326064cc1f4491e3ad76d"
+  url "https://github.com/hypershell/hypershell/archive/refs/tags/2.6.4.tar.gz"
+  sha256 "85a6d565c886379738eb48f36eef5e3c0ae30a31bc12729b41ccb9e32e7e35ec"
   license "Apache-2.0"
-  version "2.6.2"
+  version "2.6.4"
 
-  #bottle do
-  #  root_url "https://github.com/hypershell/hypershell/releases/download/2.6.2/"
-  #  sha256 cellar: :any, arm64_ventura: "65d4596911ac7e359294c0d1816a9dfd266305badf90eeac9a0164f6ccec2cb6"
-  #  sha256 cellar: :any,       ventura: "dd2166fb02c732030b30be6de9e826bb03424ddf3f0f556edd5da25794717fbf"
-  #end
+  # TODO: Update with bottle hashe for x86 macOS and Linux
+  bottle do
+    root_url "https://github.com/hypershell/hypershell/releases/download/2.6.4/"
+    sha256 cellar: :any, arm64_sequoia: "1130f20cf012ef9216caeb1f4c13091f49c0a42e9f7b1848e47c08772871be49"
+    # sha256 cellar: :any,       sequoia: "..."
+  end
 
-  depends_on "rust"
+  depends_on "rust" => :build
   depends_on "python@3.13"
-  depends_on "postgresql@16"
+  depends_on "postgresql"
 
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/56/8c/dd696962612e4cd83c40a9e6b3db77bfe65a830f4b9af44098708584686c/bcrypt-4.2.1.tar.gz"
@@ -42,6 +43,7 @@ class Hypershell < Formula
     url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
     sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
   end
+
   resource "markdown-it-py" do
     url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
     sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
@@ -124,12 +126,19 @@ class Hypershell < Formula
 
   def install
     virtualenv_install_with_resources
-    man.install man
-    bash_completion.install src/completions/hypershell.sh
-    zsh_completion.install src/completions/hypershell.sh
 
-    system "mkdir", "-p", bin
-    system "ln", "-sf", libexec/"bin/hs", bin/"hs"
+    bin.mkpath
+    bin.install_symlink libexec/"bin/hs"
+
+    man1.mkpath
+    man1.install "share/man/man1/hs.1"
+
+    bash_completion.mkpath
+    bash_completion.install "share/bash_completion.d/hs"
+
+    # TODO: Add zsh-specific completions
+    # zsh_completion.mkpath
+    # zsh_completion.install "share/zsh/site-functions/_hs"
   end
 
 end
