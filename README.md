@@ -27,20 +27,12 @@ $ source libexec/bin/activate
 ```
 
 Install the latest hypershell (just published) into the environment
-along with `psycopg2` and `homebrew-pypi-poet`.
+with the postgres extra and record all dependencies.
+Use `poet` to generate the resource definitions and copy to clipboard.
 
 ```
-$ pip install https://github.com/hypershell/hypershell/archive/refs/tags/2.6.4.tar.gz
-$ pip install psycopg2
-$ pip install homebrew-pypi-poet
-```
-
-Use `poet` to generate the resource definitions and load it to the
-clipboard. We iterate on `--single` as it break otherwise because it cannot
-find hypershell on the package index.
-
-```
-$ pip list | tail -n+3 | grep -v hypershell | awk '{print $1}' | while read name; do poet --single $name; done | pbcopy
+pip install 'hypershell[postgres]' homebrew-pypi-poet
+poet --resources 'hypershell[postgres]' | pbcopy
 ```
 
 Edit the formula (partially).
