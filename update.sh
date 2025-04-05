@@ -1,18 +1,26 @@
 #!/bin/bash
 
+# Create virtual environment
 mkdir -p /tmp/build/hypershell
 cd /tmp/build/hypershell
 /opt/homebrew/bin/python3.13 -m venv ./libexec
 source libexec/bin/activate
 
-pip https://github.com/hypershell/hypershell/archive/refs/tags/2.6.2.tar.gz
-pip install psycopg2 homebrew-pypi-poet
-pip list | tail -n+3 | grep -v hypershell | awk '{print $1}' | while read name; do poet --single $name; done | pbcopy
+# Copy/paste new resource list into formula
+# Be sure to update version info in formula (including hash for source download)!
+pip install 'hypershell[postgres]' homebrew-pypi-poet
+poet --resource 'hypershell[postgres]' | pbcopy
 brew edit hypershell
 
+# Rebuild bottle and copy bottle hash into formula
 brew uninstall hypershell
 brew install --build-bottle hypershell
 brew bottle hypershell
+brew edit hypershell
 
+# Copy over new formula to repo and commit changes
 cd -
 cp /opt/Homebrew/Library/Taps/glentner/homebrew-tap/Formula/hypershell.rb Formula/hypershell.rb
+
+# Copy bottle to release assets (and remove extra hyphen)!
+# ...
