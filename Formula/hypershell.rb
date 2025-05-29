@@ -3,15 +3,14 @@ class Hypershell < Formula
 
   desc "Process shell commands over a distributed, asynchronous queue"
   homepage "https://hypershell.org"
-  url "https://github.com/hypershell/hypershell/archive/refs/tags/2.6.6.tar.gz"
-  sha256 "afdf0e45ab0fb2fe07c1ea82e7e3a4b753a344a73d7ac483c34fa9d3adf964f1"
+  url "https://github.com/hypershell/hypershell/archive/refs/tags/2.7.0.tar.gz"
+  sha256 "2933857bfe3d77d4ce8464cf39f46e6f190b18f0df2b7856efc072ce67f2444e"
   license "Apache-2.0"
-  version "2.6.6"
+  version "2.7.0"
 
   bottle do
-    root_url "https://github.com/hypershell/hypershell/releases/download/2.6.6/"
-    sha256 cellar: :any, arm64_sequoia: "805c8902c20ea122b48867cb6bae36f11e89bbd7f46ba1762a4b7ef3f21950c6"
-    sha256 cellar: :any,       sequoia: "89a760d8afeae657953c2a10895e322825fceaa55549f4352c745b8c0a118727"
+    root_url "https://github.com/hypershell/hypershell/releases/download/2.7.0/"
+    sha256 cellar: :any, arm64_sequoia: "926ba0f6ea5b5e97930bc2e7ca6fdf9dd2261247152a9fc6134424357650025f"
   end
 
   depends_on "rust" => :build
@@ -34,13 +33,8 @@ class Hypershell < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/cd/25/4ce80c78963834b8a9fd1cc1266be5ed8d1840785c0f2e1b73b8d128d505/cryptography-44.0.2.tar.gz"
-    sha256 "c63454aa261a0cf0c5b4718349629793e9e634993538db841165b3df74f37ec0"
-  end
-
-  resource "hypershell" do
-    url "https://files.pythonhosted.org/packages/bc/8f/5a3817b3e6230797cf053fbb9549aebf5dcadff4428945bf7600961fa550/hypershell-2.6.6.tar.gz"
-    sha256 "aa1451dd6481ba92af142a85b8687e2f4d8c764037b8e1964ad2dcf75afcd0c6"
+    url "https://files.pythonhosted.org/packages/13/1f/9fa001e74a1993a9cadd2333bb889e50c66327b8594ac538ab8a04f915b7/cryptography-45.0.3.tar.gz"
+    sha256 "ec21313dd335c51d7877baf2972569f40a4291b76a0ce51391523ae358d05899"
   end
 
   resource "markdown-it-py" do
@@ -89,8 +83,8 @@ class Hypershell < Formula
   end
 
   resource "SQLAlchemy" do
-    url "https://files.pythonhosted.org/packages/68/c3/3f2bfa5e4dcd9938405fe2fab5b6ab94a9248a4f9536ea2fd497da20525f/sqlalchemy-2.0.40.tar.gz"
-    sha256 "d827099289c64589418ebbcaead0145cd19f4e3e8a93919a0100247af245fa00"
+    url "https://files.pythonhosted.org/packages/63/66/45b165c595ec89aa7dcc2c1cd222ab269bc753f1fc7a1e68f8481bd957bf/sqlalchemy-2.0.41.tar.gz"
+    sha256 "edba70118c4be3c2b1f90754d308d0b79c6fe2c0fdc52d8ddf603916f83f4db9"
   end
 
   resource "tomli" do
@@ -109,8 +103,8 @@ class Hypershell < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/76/ad/cd3e3465232ec2416ae9b983f27b9e94dc8171d56ac99b345319a9475967/typing_extensions-4.13.1.tar.gz"
-    sha256 "98795af00fb9640edec5b8e31fc647597b4691f099ad75f469a2616be1a76dff"
+    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
+    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
   end
 
   def install
