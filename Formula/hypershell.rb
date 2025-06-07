@@ -3,14 +3,14 @@ class Hypershell < Formula
 
   desc "Process shell commands over a distributed, asynchronous queue"
   homepage "https://hypershell.org"
-  url "https://github.com/hypershell/hypershell/archive/refs/tags/2.7.0.tar.gz"
-  sha256 "2933857bfe3d77d4ce8464cf39f46e6f190b18f0df2b7856efc072ce67f2444e"
+  url "https://github.com/hypershell/hypershell/archive/refs/tags/2.7.2.tar.gz"
+  sha256 "ed463974b4ba75de5f8e8a02eba9376e8384bc47cead5adf79701f5ed075a2b8"
   license "Apache-2.0"
-  version "2.7.0"
+  version "2.7.2"
 
   bottle do
-    root_url "https://github.com/hypershell/hypershell/releases/download/2.7.0/"
-    sha256 cellar: :any, arm64_sequoia: "926ba0f6ea5b5e97930bc2e7ca6fdf9dd2261247152a9fc6134424357650025f"
+    root_url "https://github.com/hypershell/hypershell/releases/download/2.7.2/"
+    sha256 cellar: :any, arm64_sequoia: "7260477d5ce431a4d447bf338a67ca47ec40d5c00e18e83dbd45f05b4ec92ec9"
   end
 
   depends_on "rust" => :build
@@ -98,13 +98,13 @@ class Hypershell < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/b1/09/a439bec5888f00a54b8b9f05fa94d7f901d6735ef4e55dcec9bc37b5d8fa/tomlkit-0.13.2.tar.gz"
-    sha256 "fff5fe59a87295b278abd31bec92c15d9bc4a06885ab12bcea52c71119392e79"
+    url "https://files.pythonhosted.org/packages/cc/18/0bbf3884e9eaa38819ebe46a7bd25dcd56b67434402b66a58c4b8e552575/tomlkit-0.13.3.tar.gz"
+    sha256 "430cf247ee57df2b94ee3fbe588e71d362a941ebb545dec29b53961d61add2a1"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
-    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
+    url "https://files.pythonhosted.org/packages/d1/bc/51647cd02527e87d05cb083ccc402f93e441606ff1f01739a62c8ad09ba5/typing_extensions-4.14.0.tar.gz"
+    sha256 "8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4"
   end
 
   def install
