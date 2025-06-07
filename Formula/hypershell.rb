@@ -11,6 +11,7 @@ class Hypershell < Formula
   bottle do
     root_url "https://github.com/hypershell/hypershell/releases/download/2.7.2/"
     sha256 cellar: :any, arm64_sequoia: "7260477d5ce431a4d447bf338a67ca47ec40d5c00e18e83dbd45f05b4ec92ec9"
+    sha256 cellar: :any,       sequoia: "ae8c74745184ac1dd1c27423a48ab6b9121b63ec9d42ead8a9219b96636a2826"
   end
 
   depends_on "rust" => :build
